@@ -103,7 +103,7 @@ h1{
 
 @media (max-width: 700px) {
     h1{
-        font-size: 7vw;
+        font-size: 4vw;
         text-align: center;
     }
     #spillerValg{
@@ -147,7 +147,7 @@ h1{
         margin-top: 7vh;
     }
     #team1, #team2{
-        height: 40vh;
+        height: 35vh;
     }
     body{
         overflow: hidden;
