@@ -1,0 +1,161 @@
+
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Alkatra', cursive;
+    font-family: 'Nunito', sans-serif;
+    background-color: beige;
+    
+
+}
+
+h1{
+    font-size: 1vw;
+    text-align: center;
+}
+#spillerValg{
+    width: 55vw;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.spiller{
+    width: 4vw;
+    height: 5vw;
+    padding: 1vw;
+    transition-duration: 0.2s;
+
+}
+.spiller:hover{
+    scale:1.1;
+    cursor: pointer;
+}
+.spiller:has(.selected){
+    background-color: green;
+    scale: 0.8;
+}
+
+.spillerBilde{
+    width: 4vw;
+    height: 4vw;
+    border-radius: 1vw;
+}
+
+.spillerNavn{
+    height: 1vw;
+    width: 4vw;
+    font-size: 1vw;
+    text-align: center;
+    margin-top: -0.3vw;
+    
+}
+
+#lagVisning{
+    width: 80vw;
+    height: 50vh;
+    
+    display: flex;
+    margin-top: 5vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+#team1{
+    height: 60vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(233, 182, 182);
+}
+#team2{
+    height: 60vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: lightblue;
+    
+}
+.lag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reRoll{
+    padding: 0.8vw;
+    background-color: cadetblue;
+    border-radius: 0.7vw;
+}
+
+@media (max-width: 700px) {
+    h1{
+        font-size: 7vw;
+        text-align: center;
+    }
+    #spillerValg{
+        width: 80vw;
+        scale:1.2;
+        
+        
+    }
+    .spiller{
+        width: 8vw;
+        height: 10vw;
+        padding: 2vw;
+        
+    
+    }
+    .spiller:hover{
+        scale:1.1;
+        cursor: pointer;
+    }
+    .spiller:has(.selected){
+        background-color: green;
+        scale: 0.8;
+    }
+    
+    .spillerBilde{
+        width: 8vw;
+        height: 8vw;
+        border-radius: 1vw;
+    }
+    
+    .spillerNavn{
+        height: 2vw;
+        width: 8vw;
+        font-size: 2.5vw;
+        text-align: center;
+        margin-top: -0.3vw;
+        
+    }
+    #lagVisning{
+        scale:1.2;
+        margin-top: 7vh;
+    }
+    #team1, #team2{
+        height: 40vh;
+    }
+    body{
+        overflow: hidden;
+    }
+    #addPlayerField{
+        margin-top: 5vw;
+    }
+    #addButton{
+        margin-top: 5vw;
+    }
+  }
