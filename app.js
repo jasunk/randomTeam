@@ -74,6 +74,7 @@ spillere = [
 ]
 svRef = document.getElementById("spillerValg")
 valgteSpillere=[]
+
 for (spiller in spillere){
     
     let spillerHel = document.createElement("div")
@@ -95,10 +96,17 @@ for (spiller in spillere){
     spillerHel.addEventListener("click",function(){
         if (valgteSpillere.includes(spillere[(this.id)])) {
             valgteSpillere.pop(spillere[(this.id)])
+            
+            this.style.backgroundColor = "none"
+            
         } else {
             valgteSpillere.push(spillere[(this.id)])
+            this.style.backgroundColor = "lightgreen"
+            this.style.translate = "0 40vh"
+            
         }
-        console.log(valgteSpillere)
+        random(valgteSpillere)
+        
     })
 
 }
@@ -111,13 +119,26 @@ addPlayerField.placeholder = "andre spillere"
 let addButton = document.createElement("div")
 addButton.innerText="Add"
 addButton.id= "addButton"
+addButton.addEventListener("click", function(){
+    valgteSpillere.push(
+        {
+            navn:addPlayerField.value,
+            bilde:"bilder/placeholder.webp"
+        }
+    )
+    addPlayerField.value=""
+    random(valgteSpillere)
+})
 svRef.appendChild(addPlayerField)
 svRef.appendChild(addButton)
 
+
+
 function random(playersToSort){
+    newTeams=false
     team1 = []
     team2 = []
-    
+    playersToSort=valgteSpillere
 
 // Loop through all the children of the div and remove them one by one
     while (document.querySelector("#team1").firstChild) {
@@ -126,38 +147,55 @@ function random(playersToSort){
     while (document.querySelector("#team2").firstChild) {
         document.querySelector("#team2").removeChild(document.querySelector("#team2").firstChild);
     }
-    for (player in playersToSort){
-
-        if (playersToSort.length%2!=0){
-            playersToSort.push({
-                navn:"",
-                bilde:"bilder/x.png"
-            })
-        }
+    if (playersToSort.length >=1){
         
-        if ((Math.random())<0.5){
+        
+        for (player in playersToSort){
             
-            if (team1.length < (playersToSort.length)/2){
-                team1.push(playersToSort[player])
+            
+            if ((Math.random())<0.5){
+                
+                if (team1.length < (playersToSort.length)/2){
+                    team1.push(playersToSort[player])
+                }else{
+                    team2.push(playersToSort[player])
+                }
             }else{
-                team2.push(playersToSort[player])
+                if (team2.length < (playersToSort.length)/2){
+                    team2.push(playersToSort[player])
+                }else{
+                    team1.push(playersToSort[player])
+                }
             }
-        }else{
-            if (team2.length < (playersToSort.length)/2){
-                team2.push(playersToSort[player])
-            }else{
-                team1.push(playersToSort[player])
-            }
+            
+            
         }
         
     }
+    console.log(team1,team2)
+    console.log(team1.length, team2.length)
+    team1Generated = 0
+    team2Generated = 0
+    document.querySelector("#team1").style.backgroundColor = "white" 
+    document.querySelector("#team1").style.filter = "blur(1px)"
+    document.querySelector("#team2").style.backgroundColor = "white" 
+    document.querySelector("#team2").style.filter = "blur(1px)"
+    setTimeout(function(){
+        document.querySelector("#team2").style.backgroundColor =  "lightblue"
+        document.querySelector("#team1").style.backgroundColor =  "rgb(233, 182, 182)"
+        document.querySelector("#team1").style.filter = "blur(0px)"
+        document.querySelector("#team2").style.filter = "blur(0px)"
+    },100)
+    
     
     for (i in team1){
+        
         
         let spillerHel1 = document.createElement("div")
         let spillerNavn1 = document.createElement("p")
         let spillerBilde1 = document.createElement("img")
         spillerHel1.id = team1[i].navn
+        
         
         spillerHel1.classList.add("spiller")
         spillerBilde1.classList.add("spillerBilde")
@@ -169,24 +207,30 @@ function random(playersToSort){
 
         spillerNavn1.innerHTML = team1[i].navn
         spillerBilde1.src = team1[i].bilde
-
-        let spillerHel2 = document.createElement("div")
-        let spillerNavn2 = document.createElement("p")
-        let spillerBilde2 = document.createElement("img")
-        spillerHel2.id = team2[i].navn
         
-        spillerHel2.classList.add("spiller")
-        spillerBilde2.classList.add("spillerBilde")
-        spillerNavn2.classList.add("spillerNavn")
+    }
+        
+    for (i in team2){
+        
+            let spillerHel2 = document.createElement("div")
+            let spillerNavn2 = document.createElement("p")
+            let spillerBilde2 = document.createElement("img")
+            spillerHel2.id = team2[i].navn
+            
+            spillerHel2.classList.add("spiller")
+            spillerBilde2.classList.add("spillerBilde")
+            spillerNavn2.classList.add("spillerNavn")
 
-        document.querySelector("#team2").appendChild(spillerHel2)
-        spillerHel2.appendChild(spillerBilde2)
-        spillerHel2.appendChild(spillerNavn2)
+            document.querySelector("#team2").appendChild(spillerHel2)
+            spillerHel2.appendChild(spillerBilde2)
+            spillerHel2.appendChild(spillerNavn2)
 
-        spillerNavn2.innerHTML = team2[i].navn
-        spillerBilde2.src = team2[i].bilde
+            spillerNavn2.innerHTML = team2[i].navn
+            spillerBilde2.src = team2[i].bilde
+            
 
     }
+    
     
 }
 

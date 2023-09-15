@@ -32,7 +32,7 @@ h1{
     width: 4vw;
     height: 5vw;
     padding: 1vw;
-    transition-duration: 0.2s;
+    transition-duration: 0.4s;
 
 }
 .spiller:hover{
@@ -78,6 +78,9 @@ h1{
     align-items: center;
     flex-wrap: wrap;
     background-color: rgb(233, 182, 182);
+    transition-duration: 0.3s;
+    border-radius: 2vw 0 0 2vw ;
+    
 }
 #team2{
     height: 60vh;
@@ -87,6 +90,8 @@ h1{
     align-items: center;
     flex-wrap: wrap;
     background-color: lightblue;
+    transition-duration: 0.3s;
+    border-radius: 0 2vw 2vw 0;
     
 }
 .lag{
@@ -95,11 +100,23 @@ h1{
     align-items: center;
 }
 
-#reRoll{
+.knapp{
     padding: 0.8vw;
     background-color: cadetblue;
     border-radius: 0.7vw;
+    user-select: none;
+    cursor: pointer;
+    margin-top: 1vh;
 }
+
+#addButton{
+    background-color: green;
+    border-radius: 2vw;
+    font-size: 2.2vw;
+    padding: 1.5vw;
+}
+
+        
 
 @media (max-width: 700px) {
     h1{
@@ -115,12 +132,13 @@ h1{
     .spiller{
         width: 8vw;
         height: 10vw;
-        padding: 2vw;
-        
+        padding: 2.2vw;
+        border-radius: 2vw;
+        margin-top: 1vw;
     
     }
     .spiller:hover{
-        scale:1.1;
+        scale:1.05;
         cursor: pointer;
     }
     .spiller:has(.selected){
@@ -155,5 +173,8 @@ h1{
     }
     #addButton{
         margin-top: 5vw;
+    }
+    p{
+        font-size: 2vw;
     }
   }
