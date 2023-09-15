@@ -1,7 +1,7 @@
 spillere = [
     {
         navn:"Freddy",
-        bilde:"bilder/placeholder.webp"
+        bilde:"bilder/sobbe.png"
     },
     {
         navn:"Henrik",
@@ -29,7 +29,7 @@ spillere = [
     },
     {
         navn:"Amr",
-        bilde:"bilder/placeholder.webp"
+        bilde:"bilder/immi.png"
     },
     {
         navn:"Silfo",
@@ -40,12 +40,12 @@ spillere = [
         bilde:"bilder/sebb.jpg"
     },
     {
-        navn:"Amr",
+        navn:"Hugo",
         bilde:"bilder/placeholder.webp"
     },
     {
         navn:"Eirik",
-        bilde:"bilder/eirik.jpg"
+        bilde:"bilder/drMan.png"
     },
     {
         navn:"Rasmus",
@@ -57,19 +57,20 @@ spillere = [
     },
     {
         navn:"Tor",
-        bilde:"bilder/placeholder.webp"
-    },
-    {
-        navn:"Jon",
-        bilde:"bilder/placeholder.webp"
+        bilde:"bilder/tor.png"
     },
     {
         navn:"Olav",
         bilde:"bilder/oluf.jpg"
     },
     {
-        navn:"Arun",
+        navn:"Jon",
         bilde:"bilder/placeholder.webp"
+    },
+    
+    {
+        navn:"Arun",
+        bilde:"bilder/aruni.jpg"
     },
 ]
 svRef = document.getElementById("spillerValg")
